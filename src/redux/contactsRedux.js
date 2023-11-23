@@ -1,8 +1,4 @@
-import {
-  fetchAddContact,
-  fetchAllContacts,
-  fetchDeleteContact,
-} from 'services/contacts.api';
+
 
 const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
