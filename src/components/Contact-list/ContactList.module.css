@@ -1,0 +1,31 @@
+.list {
+  padding: 10px 14px;
+  margin: 0;
+  width: 500px;
+  height: 300px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  list-style: none;
+  border: 2px solid #adadf5;
+  border-radius: 6px;
+  box-shadow: #00000059 0px 5px 15px;
+
+  overflow-y: scroll;
+
+  font-size: 18px;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
