@@ -1,0 +1,29 @@
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 14px;
+
+	background-color: aqua;
+	font-size: 18px;
+}
+
+.navigation{
+	display: flex;
+	gap: 12px;
+}
+
+.headerLink{
+	padding: 18px 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+.headerLink:hover,
+.headerLink:focus{
+	color: orange;
+}
+
+.active{
+	color: orange;
+}

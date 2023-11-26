@@ -2,7 +2,7 @@ import css from './ContactForm.module.css';
 import Notiflix from 'notiflix';
 import { RotatingLines } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, setIsLoadingForm } from 'redux/contactsRedux';
+import { addContact, setIsLoadingForm } from 'redux/contactsReducer';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -14,26 +14,26 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const name = e.currentTarget.elements.name.value;
-    const phone = e.currentTarget.elements.number.value;
+   //  const name = e.currentTarget.elements.name.value;
+   //  const phone = e.currentTarget.elements.number.value;
 
-    const contact = {
-      name,
-      phone,
-    };
+   //  const contact = {
+   //    name,
+   //    phone,
+   //  };
 
-    const audit = contacts.some(contact => contact.name === name);
+   //  const audit = contacts.some(contact => contact.name === name);
 
-    if (audit) {
-      Notiflix.Notify.failure(`The name ${name} already exists in contacts`);
-      e.currentTarget.reset();
-      return;
-    } else {
-      Notiflix.Notify.success(`Contact ${name} successfully added`);
-      dispatch(setIsLoadingForm(true));
-      dispatch(addContact(contact));
-      dispatch(setIsLoadingForm(false));
-    }
+   //  if (audit) {
+   //    Notiflix.Notify.failure(`The name ${name} already exists in contacts`);
+   //    e.currentTarget.reset();
+   //    return;
+   //  } else {
+   //    Notiflix.Notify.success(`Contact ${name} successfully added`);
+   //    dispatch(setIsLoadingForm(true));
+   //    dispatch(addContact(contact));
+   //    dispatch(setIsLoadingForm(false));
+   //  }
 
     e.currentTarget.reset();
   };

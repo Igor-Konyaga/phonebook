@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 import { useEffect } from 'react';
-import { requestContacts } from 'redux/contactsRedux';
+import { requestContacts } from 'redux/contactsReducer';
 import { RotatingLines } from 'react-loader-spinner';
 import { Contact } from './Contact/Contact';
 
@@ -17,9 +17,9 @@ export const ContactList = () => {
   );
 
 
-  useEffect(() => {
-    dispatch(requestContacts());
-  }, [dispatch]);
+//   useEffect(() => {
+//     dispatch(requestContacts());
+//   }, [dispatch]);
 
   const filteredContacts = contacts.filter(contact => {
     return contact.name.toLowerCase().includes(normalizeFilter);

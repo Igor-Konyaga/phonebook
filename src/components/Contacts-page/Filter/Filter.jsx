@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux';
 import css from './Filter.module.css';
-import { setFilter } from 'redux/contactsRedux';
+import { setFilter } from 'redux/contactsReducer';
 
 export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleFilter = e => {
     const filterName = e.target.value;
-    dispatch(setFilter(filterName));
+   //  dispatch(setFilter(filterName));
   };
 
   return (
