@@ -7,7 +7,7 @@ export const Filter = () => {
 
   const handleFilter = e => {
     const filterName = e.target.value;
-   //  dispatch(setFilter(filterName));
+    dispatch(setFilter(filterName));
   };
 
   return (

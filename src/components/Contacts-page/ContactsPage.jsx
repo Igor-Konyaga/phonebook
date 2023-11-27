@@ -5,7 +5,6 @@ import { Filter } from './Filter/Filter';
 const ContactsPage = () => {
   return (
     <div>
-      Contacts Page
       <ContactForm />
       <Filter />
       <ContactList />

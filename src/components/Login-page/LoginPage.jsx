@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from 'redux/contactsReducer';
+import { loginThunk } from 'redux/authReducer';
 
 const LoginPage = () => {
   const {
@@ -13,8 +13,6 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    console.log(data);
-
     dispatch(loginThunk(data));
 
     reset();

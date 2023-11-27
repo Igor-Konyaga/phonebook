@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 import { ProductsPage } from './Products-page/ProductsPage';
 import { useDispatch } from 'react-redux';
-import { refreshThunk } from 'redux/contactsReducer';
 import {RestrictedRoute} from './Restricted-route/RestrictedRoute';
 import {PrivateRoute} from './Private-route/PrivateRoute';
+import { refreshThunk } from 'redux/authReducer';
 
 const RegisterPage = lazy(() => import('./Register-page/RegisterPage'));
 const LoginPage = lazy(() => import('./Login-page/LoginPage'));
@@ -21,6 +21,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
+
   return (
     <div>
       <Navigation />

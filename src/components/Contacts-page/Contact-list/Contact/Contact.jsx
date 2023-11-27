@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
-import { deleteContact } from 'redux/contactsReducer';
 import { RotatingLines } from 'react-loader-spinner';
 import { useState } from 'react';
 import Notiflix from 'notiflix';
+import { fetchDeleteContact } from 'redux/contactsReducer';
 
 export const Contact = ({ id, name, phone }) => {
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ export const Contact = ({ id, name, phone }) => {
       <button
         onClick={() => {
 			  setIsLoading(true);
-			//   dispatch(deleteContact(id)
-			//   );
+			  dispatch(fetchDeleteContact(id)
+			  );
 			  Notiflix.Notify.success(`Contact ${name} successfully deleted`)
         }}
         className={css.button}

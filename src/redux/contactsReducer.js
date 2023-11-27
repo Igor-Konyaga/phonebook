@@ -1,73 +1,45 @@
 import {
-  requestLogin,
-  requestLogout,
-  requestRefreshUser,
-  requestRegister,
-  setToken,
+  addContact,
+  deleteContact,
+  fetchAllContacts,
 } from 'services/phonebookApi';
 
 const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
-export const registerThunk = createAsyncThunk(
-  'user/register',
-  async (formData, thunkAPI) => {
-    try {
-      const userData = await requestRegister(formData);
-
-      return userData;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const loginThunk = createAsyncThunk(
-  'user/login',
-  async (formData, thunkAPI) => {
-    try {
-      const data = await requestLogin(formData);
-      console.log('data: ', data);
-
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-export const refreshThunk = createAsyncThunk(
-  'user/refresh',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.phonebook.token;
-    setToken(token);
-    try {
-      const data = await requestRefreshUser();
-
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-  {
-    condition: (_, thunkAPI) => {
-      const state = thunkAPI.getState();
-      const token = state.phonebook.token;
-      if (token !== null) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  }
-);
-
-export const logoutThunk = createAsyncThunk(
-  'user/logout',
+export const fetchContacts = createAsyncThunk(
+  'contacts/getAll',
   async (_, thunkAPI) => {
     try {
-      const data = await requestLogout();
+      const contacts = await fetchAllContacts();
 
-      return data;
+      return contacts;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const fetchAddContact = createAsyncThunk(
+  'contacts/add',
+  async (newContact, thunkAPI) => {
+    try {
+      const contact = await addContact(newContact);
+      console.log('contact: ', contact);
+
+      return contact;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchDeleteContact = createAsyncThunk(
+  'contacts/delete',
+  async (contactId, thunkAPI) => {
+    try {
+      const delContact = await deleteContact(contactId);
+      console.log('delContact: ', delContact);
+
+      return delContact;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -75,15 +47,14 @@ export const logoutThunk = createAsyncThunk(
 );
 
 const INITIAL_STATE = {
-  token: null,
-  user: { email: null, name: null },
+  contacts: [],
   isLoading: false,
   error: null,
-  authentication: false,
+  filter: '',
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const contactsSlice = createSlice({
+  name: 'contacts',
   initialState: INITIAL_STATE,
   reducers: {
     setFilter(state, action) {
@@ -95,59 +66,46 @@ const authSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(registerThunk.pending, state => {
+      .addCase(fetchContacts.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(registerThunk.fulfilled, (state, action) => {
+      .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.authentication = true;
-        state.token = action.payload.token;
-        state.user = action.payload.user;
+        state.contacts = action.payload;
       })
-      .addCase(registerThunk.rejected, (state, action) => {
+      .addCase(fetchContacts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(loginThunk.pending, state => {
+      .addCase(fetchAddContact.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(loginThunk.fulfilled, (state, action) => {
+      .addCase(fetchAddContact.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.authentication = true;
-        state.token = action.payload.token;
-        state.user = action.payload.user;
+        state.contacts = [...state.contacts, action.payload];
       })
-      .addCase(loginThunk.rejected, (state, action) => {
+      .addCase(fetchAddContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(refreshThunk.pending, state => {
+      .addCase(fetchDeleteContact.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(refreshThunk.fulfilled, (state, action) => {
+      .addCase(fetchDeleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.authentication = true;
-        state.user = action.payload;
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== action.payload.id
+        );
       })
-      .addCase(refreshThunk.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(logoutThunk.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logoutThunk.fulfilled, () => {
-        return INITIAL_STATE;
-      })
-      .addCase(logoutThunk.rejected, (state, action) => {
+      .addCase(fetchDeleteContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
 });
 
+export const { setFilter } = contactsSlice.actions;
 
-export const authReducer = authSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;

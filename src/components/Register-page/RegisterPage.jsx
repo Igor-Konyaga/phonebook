@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { registerThunk } from 'redux/contactsReducer';
+import { registerThunk } from 'redux/authReducer';
 
 const RegisterPage = () => {
   const {
@@ -13,7 +13,6 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    console.log(data);
 
     dispatch(registerThunk(data));
 

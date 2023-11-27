@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 import { useEffect } from 'react';
-import { requestContacts } from 'redux/contactsReducer';
 import { RotatingLines } from 'react-loader-spinner';
 import { Contact } from './Contact/Contact';
+import { fetchContacts } from 'redux/contactsReducer';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(state => state.contactsReducer.contacts.items);
-  const filter = useSelector(state => state.contactsReducer.filter);
+  const contacts = useSelector(state => state.contacts.contacts);
+  const filter = useSelector(state => state.contacts.filter);
   const normalizeFilter = filter.toLowerCase().trim();
 
   const isLoading = useSelector(
-    state => state.contactsReducer.contacts.isLoading
+    state => state.contacts.isLoading
   );
 
 
-//   useEffect(() => {
-//     dispatch(requestContacts());
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const filteredContacts = contacts.filter(contact => {
     return contact.name.toLowerCase().includes(normalizeFilter);
