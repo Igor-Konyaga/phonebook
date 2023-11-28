@@ -21,6 +21,7 @@ export const ContactForm = () => {
 	 //   );
   
 	 const onSubmit = contact => {
+		console.log('contact: ', contact);
   
 		dispatch(fetchAddContact(contact));
   
