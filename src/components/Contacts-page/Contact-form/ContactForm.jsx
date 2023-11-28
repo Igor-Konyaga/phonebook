@@ -29,7 +29,7 @@ export const ContactForm = () => {
 	 };
 
   return (
-	<form onSubmit={handleSubmit(onSubmit)}>
+	<form className={css.form} onSubmit={handleSubmit(onSubmit)}>
 	<label className={css.label}>
 	  <span>Name</span>
 	  <input className={css.input} {...register('name', { required: true })} type="text" />
