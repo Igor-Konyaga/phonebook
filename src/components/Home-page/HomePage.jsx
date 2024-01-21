@@ -3,3 +3,8 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+const Page = () => {
+	console.log(134);
+}

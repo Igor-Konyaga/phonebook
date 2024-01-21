@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from 'redux/authReducer';
+import css from './RegisterPage.module.css'
 
 const RegisterPage = () => {
   const {
@@ -20,29 +21,31 @@ const RegisterPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>
+    <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+      <div className={css.form__wrepperLabel}>
+		<label className={css.label}>
         <span>Email</span>
-        <input {...register('email', { required: true })} type="email" />
+        <input className={css.labelInput} {...register('email', { required: true })} type="email" />
         {errors.email && <span>This field is required</span>}
       </label>
 
-      <label>
-        <span>Name</span>
-        <input {...register('name', { required: true })} type="text" />
+      <label className={css.label}>
+        <span >Name</span>
+        <input className={css.labelInput} {...register('name', { required: true })} type="text" />
         {errors.name && <span>This field is required</span>}
       </label>
 
-      <label>
-        <span>Password</span>
-        <input
+      <label className={css.label}>
+        <span >Password</span>
+        <input className={css.labelInput}
           {...register('password', { required: true, minLength: 8 })}
           type="password"
         />
         {errors.password && <span>This field is required</span>}
       </label>
+		</div>
 
-      <button type="submit">Sign Up</button>
+      <button className={css.form__button} type="submit">Sign Up</button>
     </form>
   );
 };

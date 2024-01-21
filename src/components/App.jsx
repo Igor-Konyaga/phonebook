@@ -78,17 +78,5 @@ export const App = () => {
     </div>
   );
 
-  //  <div className={css.section}>
-  //    {error !== null ? (
-  //      <p className={css.error}> {error}</p>
-  //    ) : (
-  //      <>
-  //        <h1 className={css.title}>Phonebooks</h1>
-  //        <ContactForm />
-  //        <h2 className={css.title}>Contacts</h2>
-  //        <Filter />
-  //        <ContactList />
-  //      </>
-  //    )}
-  //  </div>
+
 };
