@@ -4,7 +4,7 @@
   align-items: center;
   column-gap: 14px;
 
-  min-width: 550px;
+  min-width: 580px;
   padding: 8px 10px;
 
   border-radius: 30px;
@@ -36,6 +36,6 @@
 }
 
 .mainTitle {
-  font-size: 40px;
-  letter-spacing: 3px;
+  font-size: 32px;
+  letter-spacing: 5px;
 }

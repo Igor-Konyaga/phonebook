@@ -1,25 +1,19 @@
 .form {
-  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 16px 24px;
   margin-bottom: 24px;
-  width: 250px;
 
   border: 2px solid #adadf5;
   border-radius: 8px;
   box-shadow: #00000059 0px 5px 15px;
 }
 
-.label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  margin-bottom: 12px;
-}
-
 .input {
   padding: 4px 12px;
-  height: 36px;
-  max-width: 250px;
+  min-height: 36px;
+  max-width: 300px;
 
   border-radius: 6px;
   cursor: pointer;
@@ -31,8 +25,8 @@
 }
 
 .btn {
-  padding: 6px 12px;
-  min-width: 110px;
+  padding: 6px 16px;
+  min-height: 36px;
 
   border: none;
   border-radius: 6px;

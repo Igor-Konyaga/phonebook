@@ -1,21 +1,5 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  max-width: 350px;
-
-  padding: 46px 36px;
-  margin: 0 auto;
-
-  background-color: #fafafa;
-  border: 5px solid #ffde59;
-  border-radius: 16px;
-}
-
-.form__wrepperLabel {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.section {
+  padding-top: 30px;
 }
 
 .label {
@@ -35,36 +19,4 @@
   line-height: 1.2;
 
   outline: none;
-}
-
-.labelInput:hover,
-.labelInput:focus {
-  border-color: #daa00e;
-}
-
-.form__button {
-  padding: 10px 12px;
-
-  border: 2px solid #2c2c2c90;
-  border-radius: 6px;
-  background-color: #b6b6b648;
-
-  transition: all 0.3s;
-
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.form__button:hover,
-.form__button:focus {
-  background-color: #b6b6b6;
-  color: #ffffff;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-.labelInput,
-.form__button {
-  min-height: 40px;
 }
