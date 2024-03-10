@@ -1,0 +1,41 @@
+.mainTitleSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 14px;
+
+  min-width: 550px;
+  padding: 8px 10px;
+
+  border-radius: 30px;
+
+  background-color: #fafafa;
+
+  text-align: center;
+}
+
+.wrapperIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  background-color: #2c05f2;
+  border-radius: 50%;
+}
+
+.wrapperIcon svg {
+  width: 36px;
+  height: 36px;
+
+  fill: #fafafa;
+  stroke: #fafafa;
+  stroke-width: 1px;
+}
+
+.mainTitle {
+  font-size: 40px;
+  letter-spacing: 3px;
+}

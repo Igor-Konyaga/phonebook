@@ -1,5 +1,35 @@
 .userMenu {
   display: flex;
-  gap: 10px;
+  column-gap: 12px;
   align-items: center;
+
+  padding: 20px 0;
+
+  align-self: flex-end;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px 16px;
+
+  background-color: #fafafa;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  font-weight: 600;
+}
+
+.btn:focus,
+.btn:hover {
+  background-color: #2c05f2;
+  color: #fafafa;
 }

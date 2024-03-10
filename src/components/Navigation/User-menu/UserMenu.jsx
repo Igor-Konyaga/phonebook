@@ -9,7 +9,7 @@ export const UserMenu = () => {
   return (
     <div className={css.userMenu}>
       <p>{userEmail}</p>
-      <button onClick={() => dispatch(logoutThunk())} className={css.btn}>
+      <button className={css.btn} onClick={() => dispatch(logoutThunk())}>
         Logout
       </button>
     </div>
