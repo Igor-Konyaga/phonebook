@@ -1,9 +1,23 @@
 import { useForm } from 'react-hook-form';
 import css from './Form.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/authReducer';
+import { useEffect } from 'react';
+import Notiflix from 'notiflix';
 
 export const Form = ({ children, login }) => {
+  const isAuthentication = useSelector(state => state.auth.authentication);
+  const error = useSelector(state => state.auth.error);
+
+  useEffect(() => {
+    if (error) {
+      return Notiflix.Notify.failure('Error');
+    }
+    if (isAuthentication) {
+      return Notiflix.Notify.success('Registration succes');
+    }
+  }, [error, isAuthentication]);
+
   const {
     register,
     handleSubmit,

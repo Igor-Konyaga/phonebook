@@ -2,7 +2,8 @@
   padding: 10px 14px;
   margin: 0;
   width: 100%;
-  height: 380px;
+
+  height: 55vh;
 
   position: relative;
 
@@ -17,7 +18,9 @@
 
   overflow-y: scroll;
 
-  font-size: 18px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 1.5;
 }
 
 .loader {

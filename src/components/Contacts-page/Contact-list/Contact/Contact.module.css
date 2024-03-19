@@ -13,9 +13,7 @@
 }
 
 .button {
-  padding: 4px 8px;
-  min-width: 65px;
-  max-width: 100px;
+  padding: 6px 12px;
 
   border: 2px solid #666060;
   background-color: inherit;
