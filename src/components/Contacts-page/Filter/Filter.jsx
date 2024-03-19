@@ -11,9 +11,13 @@ export const Filter = () => {
   };
 
   return (
-    <label className={css.label}>
-      Find contacts by name
-      <input className={css.input} onChange={handleFilter} type="text" />
-    </label>
+    <div className={css.filterSection}>
+        <input
+          className={css.input}
+          onChange={handleFilter}
+          type="text"
+          placeholder="find contacts by name"
+        />
+    </div>
   );
 };

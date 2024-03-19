@@ -1,22 +1,27 @@
-.label {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
- 
-	margin-bottom: 16px;
- }
- 
- .input {
-	padding: 4px 12px;
-	height: 36px;
-	max-width: 250px;
- 
-	border-radius: 6px;
-	cursor: pointer;
-	outline: none;
- }
- .input:hover,
- .input:focus {
-	border-color: rgb(249, 140, 16);
- }
- 
+.filterSection {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+
+  width: calc(30% - 8px);
+
+  border: 2px solid #adadf5;
+  border-radius: 8px;
+  box-shadow: #00000059 0px 5px 15px;
+
+  font-size: 14px;
+}
+
+.input {
+  padding: 6px;
+  width: 100%;
+  min-height: 36px;
+
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+}
+.input:hover,
+.input:focus {
+  border-color: rgb(249, 140, 16);
+}
